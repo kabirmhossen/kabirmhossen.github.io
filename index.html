@@ -1,0 +1,877 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joy Prokash Debnath | Computational Biology & Single-Cell Genomics</title>
+  <meta name="description" content="Academic website of Joy Prokash Debnath, Research Officer in computational biology and single-cell genomics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #fafafa;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #4b5563;
+      --subtle: #6b7280;
+      --accent: #111827;
+      --max-width: 1080px;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.85fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title {
+      margin: 0 0 1.1rem;
+      font-size: 1.12rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-summary {
+      max-width: 700px;
+      margin: 0 0 1.7rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.82rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+      border-color: #d1d5db;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .hero-meta {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .meta-item {
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .meta-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .meta-label {
+      display: block;
+      margin-bottom: 0.18rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .meta-value {
+      color: var(--text);
+      font-size: 0.96rem;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 4.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+      align-items: start;
+    }
+
+    .section-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-top: 0.4rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.5rem;
+    }
+
+    .content-main p:first-child {
+      margin-top: 0;
+    }
+
+    .content-main p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.15rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0 0 0.85rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0.9rem 0 1rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .key-outcome {
+      margin-top: 0.7rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.93rem;
+      color: var(--text);
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .publication-item {
+      padding: 1rem 1rem 1rem 1.1rem;
+      border-left: 3px solid #d1d5db;
+      background: var(--surface);
+      border-radius: 0 14px 14px 0;
+    }
+
+    .publication-item strong {
+      color: var(--text);
+    }
+
+    .publication-title {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .publication-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      display: inline-block;
+      margin-top: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+    }
+
+    .skill-list {
+      margin: 0;
+      padding-left: 1rem;
+      color: var(--muted);
+    }
+
+    .skill-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .cv-box,
+    .contact-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .cv-box p,
+    .contact-box p {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-label {
+      color: var(--subtle);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-value {
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .site-footer {
+      padding: 2rem 0 3rem;
+      color: var(--subtle);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-header,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-label {
+        padding-top: 0;
+      }
+
+      .research-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0.85rem 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 4.5rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .button-group {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .contact-item {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#top" class="brand">Joy Prokash Debnath</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#skills">Skills</a>
+          <a href="#cv">CV</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Academic Profile</span>
+            <h1 id="hero-heading">Joy Prokash Debnath</h1>
+            <p class="hero-title">Research Officer | Computational Biology &amp; Single-Cell Genomics</p>
+            <p class="hero-summary">
+              I work at the intersection of transcriptomics, host-pathogen biology, and computational modeling.
+              My research integrates single-cell and bulk sequencing, bioinformatics, and machine learning to study
+              cellular heterogeneity, disease mechanisms, and biologically meaningful signals in complex datasets.
+            </p>
+            <div class="button-group">
+              <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+              <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Profile summary">
+            <h3>Current Focus</h3>
+            <div class="hero-meta">
+              <div class="meta-item">
+                <span class="meta-label">Affiliation</span>
+                <span class="meta-value">Child Health Research Foundation (CHRF)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Training</span>
+                <span class="meta-value">Biochemistry &amp; Molecular Biology, Shahjalal University of Science and Technology (SUST)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Research Areas</span>
+                <span class="meta-value">Single-cell genomics, transcriptomics, host-pathogen interaction, computational biology</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Approach</span>
+                <span class="meta-value">Combining wet-lab insight with reproducible computational analysis and machine learning</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">About</div>
+          <div>
+            <h2 class="section-title" id="about-title">Academic background and research perspective</h2>
+            <p class="section-intro">
+              My work is shaped by a dual interest in molecular biology and data-driven biological discovery.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="content-main">
+            <p>
+              I am a Research Officer at the Child Health Research Foundation (CHRF), with academic training in
+              Biochemistry and Molecular Biology from Shahjalal University of Science and Technology (SUST).
+              My research centers on using genomics and computational methods to understand disease biology,
+              especially in the context of infection, immune response, and cellular heterogeneity.
+            </p>
+            <p>
+              Across my projects, I have worked with single-cell RNA sequencing, bulk transcriptomics,
+              metagenomics, statistical modeling, and machine learning. I am particularly interested in how
+              computational analysis can uncover interpretable biological patterns from high-dimensional data
+              while remaining grounded in experimental and clinical context.
+            </p>
+            <p>
+              My longer-term goal is to contribute to research that integrates wet-lab and computational
+              approaches to address clinically meaningful questions in genomics, host-pathogen interaction,
+              and molecular disease mechanisms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Research Experience</div>
+          <div>
+            <h2 class="section-title" id="research-title">Selected projects</h2>
+            <p class="section-intro">
+              These projects reflect a consistent focus on extracting biologically interpretable signals from sequencing data using rigorous analytical workflows.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="research-grid">
+            <article class="card">
+              <h3>Pediatric Single-Cell Atlas of the Nasopharynx</h3>
+              <p>
+                Developed and analyzed single-cell transcriptomic datasets to characterize epithelial and immune
+                cell states in pediatric nasopharyngeal tissue, with emphasis on infection-associated remodeling
+                and host-pathogen interactions.
+              </p>
+              <div class="tag-row">
+                <span class="tag">scRNA-seq</span>
+                <span class="tag">Seurat</span>
+                <span class="tag">SingleR</span>
+                <span class="tag">Cell annotation</span>
+              </div>
+              <div class="key-outcome">
+                <strong>Key outcome:</strong> Contributed to atlas-scale analysis of pediatric mucosal cellular diversity and infection-linked cell-state variation.
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Mpox Transcriptomics Biomarker Study</h3>
+              <p>
+                Performed transcriptomic analysis and machine-learning-based biomarker discovery to identify
+                candidate genes associated with Mpox infection, integrating differential expression results with
+                classification modeling and biological interpretation.
+              </p>
+              <div class="tag-row">
+                <span class="tag">DESeq2</span>
+                <span class="tag">Machine learning</span>
+                <span class="tag">Biomarker discovery</span>
+                <span class="tag">ROC/AUPRC</span>
+              </div>
+              <div class="key-outcome">
+                <strong>Key outcome:</strong> Helped identify candidate transcriptomic biomarkers and support a first-author publication in <em>Scientific Reports</em>.
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Deep Learning for Cancer Latent Profiling</h3>
+              <p>
+                Applied variational autoencoders to transcriptomic data to learn latent representations of tumor
+                biology and used attribution-based interpretation to identify genes associated with latent disease
+                structure and downstream classification performance.
+              </p>
+              <div class="tag-row">
+                <span class="tag">VAE</span>
+                <span class="tag">Integrated Gradients</span>
+                <span class="tag">Latent space analysis</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="key-outcome">
+                <strong>Key outcome:</strong> Used deep representation learning to prioritize biologically meaningful latent drivers in cancer-related transcriptomic profiles.
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Metagenomics for Meningitis Pathogen Detection</h3>
+              <p>
+                Worked on metagenomic sequencing analysis for pathogen detection in clinically complex meningitis
+                cases, integrating microbial identification, genomic interpretation, and clinically relevant
+                contextualization for improved understanding of suspected infections.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Metagenomics</span>
+                <span class="tag">Pathogen detection</span>
+                <span class="tag">Genome analysis</span>
+                <span class="tag">Clinical genomics</span>
+              </div>
+              <div class="key-outcome">
+                <strong>Key outcome:</strong> Supported sequencing-based detection and interpretation of pathogens in cases where conventional diagnostic signals were limited.
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Publications &amp; Preprints</div>
+          <div>
+            <h2 class="section-title" id="publications-title">Selected scholarly output</h2>
+            <p class="section-intro">
+              Replace placeholder details and links below with full citations, DOI links, and author lists as needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="publication-list">
+            <div class="publication-item">
+              <span class="publication-title">Transcriptomic biomarker discovery in Mpox infection</span>
+              <div class="publication-meta">
+                Joy Prokash Debnath <strong>et al.</strong> <em>Scientific Reports</em>.
+              </div>
+              <span class="highlight">First-author publication</span>
+            </div>
+
+            <div class="publication-item">
+              <span class="publication-title">VirusTaxo: machine-learning-based viral taxonomy classification from metagenomic sequences</span>
+              <div class="publication-meta">
+                Co-author. <em>Genomics</em>.
+              </div>
+            </div>
+
+            <div class="publication-item">
+              <span class="publication-title">Metagenomic investigation of meningitis-associated pathogens</span>
+              <div class="publication-meta">
+                Contributing author. <em>Lancet Microbe</em> (submitted / under review).
+              </div>
+            </div>
+
+            <div class="publication-item">
+              <span class="publication-title">Neuroinvasive Human Parvovirus 4 and mortality in pediatric patients</span>
+              <div class="publication-meta">
+                Contributing author. <em>medRxiv</em> preprint.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Skills</div>
+          <div>
+            <h2 class="section-title" id="skills-title">Technical competencies</h2>
+            <p class="section-intro">
+              A cross-disciplinary skill set spanning molecular techniques, computational analysis, and reproducible data workflows.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Wet Lab</h3>
+              <ul class="skill-list">
+                <li>RNA extraction and nucleic acid handling</li>
+                <li>qPCR and gene expression validation</li>
+                <li>Sample preparation and library-prep familiarity</li>
+                <li>Basic molecular biology and transcriptomics workflows</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3>Bioinformatics</h3>
+              <ul class="skill-list">
+                <li>Seurat, SingleR, celldex</li>
+                <li>DESeq2, differential expression analysis</li>
+                <li>WGCNA, enrichment analysis, feature interpretation</li>
+                <li>Single-cell and bulk RNA-seq workflow analysis</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3>Programming</h3>
+              <ul class="skill-list">
+                <li>R and Python for data analysis and visualization</li>
+                <li>Machine learning model development and evaluation</li>
+                <li>Deep learning workflows for biological data</li>
+                <li>Reproducible scripting and pipeline-oriented analysis</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3>Tools &amp; Infrastructure</h3>
+              <ul class="skill-list">
+                <li>Docker and containerized workflows</li>
+                <li>Terra and cloud-based data analysis environments</li>
+                <li>GitHub for version control and project sharing</li>
+                <li>High-throughput sequencing data processing pipelines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">CV</div>
+          <div>
+            <h2 class="section-title" id="cv-title">Curriculum vitae</h2>
+            <p class="section-intro">
+              Keep the CV concise, updated, and aligned with the narrative presented on this website.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="cv-box">
+            <p>
+              A full academic CV can be linked here as a PDF. Include education, positions, publications,
+              presentations, technical skills, and relevant honors or fellowships.
+            </p>
+            <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Contact</div>
+          <div>
+            <h2 class="section-title" id="contact-title">Get in touch</h2>
+            <p class="section-intro">
+              Replace placeholder links with your active professional profiles before publishing.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div></div>
+          <div class="contact-box">
+            <p>
+              I welcome opportunities for research collaboration, academic discussion, and PhD-related communication.
+            </p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">
+                  <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/your-profile</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">
+                  <a href="#" target="_blank" rel="noopener noreferrer">github.com/your-username</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">Google Scholar</div>
+                <div class="contact-value">
+                  <a href="#" target="_blank" rel="noopener noreferrer">Scholar profile link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> Joy Prokash Debnath. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
